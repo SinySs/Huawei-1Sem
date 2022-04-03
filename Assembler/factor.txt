@@ -1,0 +1,22 @@
+in
+pop ax
+push 1
+pop cx
+push 1
+pop bx
+:start
+push ax
+push cx
+jb next
+push bx
+mul
+pop bx
+push cx
+push 1
+add
+pop cx
+jmp start
+:next
+push bx
+out
+end

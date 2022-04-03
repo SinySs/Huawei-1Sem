@@ -1,0 +1,82 @@
+in
+pop ax
+in
+pop bx
+in
+pop cx
+push ax
+push 0
+je lin
+call Discr
+push 0
+push dx
+ja close
+call sqrt
+push dx
+push 2
+push bx
+push -1
+mul
+push dx
+add
+div
+out
+push 2
+push bx
+push -1
+mul
+push dx
+push -1
+mul
+add
+div
+out
+end
+:lin
+push 0
+push bx
+je crax
+push cx
+push -1
+mul
+div
+out
+end
+:crax
+push -666
+out
+end
+Discr :
+push bx
+push bx
+mul
+push ax
+push cx
+mul
+push -4
+mul
+add
+pop dx
+ret
+sqrt :
+push 0
+pop ex
+:start
+push dx
+push ex
+push ex
+mul
+je next
+push ex
+push 1
+add
+pop ex
+jmp start
+:next
+push ex
+pop dx
+ret
+:close
+push -777
+out
+end
